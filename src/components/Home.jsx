@@ -1,7 +1,14 @@
 import React from "react";
 import AlbumCard from "./AlbumCard";
 import { Row, Col } from "react-bootstrap";
+// import { connect } from "react-redux";
+// import { getDataAction } from "../actions";
 
+// const mapStateToProps = state => state
+
+// const mapDispatchToProps = (dispatch) => ({
+//     getJobs: (fetchType, query) => dispatch(getDataAction(fetchType, query))
+// })
 class Home extends React.Component {
   state = {
     rockSongs: [],
@@ -176,3 +183,4 @@ class Home extends React.Component {
 }
 
 export default Home;
+// export default connect(mapStateToProps, mapDispatchToProps)(Home);

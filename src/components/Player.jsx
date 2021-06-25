@@ -1,11 +1,20 @@
 import React from "react";
 import { Row } from "react-bootstrap";
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 
-const Player = () => (
+
+const mapStateToProps = state => state
+
+
+const Player = (props) => (
   <div className="container-fluid fixed-bottom bg-container pt-1">
     <Row>
+
+      {/* <img src={props.user.isPlaying} /> */}
       <div className="col-lg-10 offset-lg-2">
         <Row>
+          <p className="text-white">{props.user.isPlaying.title}</p>
           <div className="col-6 col-md-4 col-lg-2 offset-3 offset-md-4 offset-lg-5 playerControls mt-1">
             <Row>
               <a href="/">
@@ -40,8 +49,9 @@ const Player = () => (
           </div>
         </Row>
       </div>
+
     </Row>
   </div>
 );
+export default connect(mapStateToProps)(withRouter(Player));
 
-export default Player;
