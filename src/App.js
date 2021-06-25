@@ -9,9 +9,7 @@ import Artist from "./components/Artist";
 import Album from "./components/Album";
 import SearchResults from "./components/SearchResults";
 
-import AddTodo from '../containers/AddTodo'
-import VisibleTodoList from '../containers/VisibleTodoList'
-import UndoRedo from '../containers/UndoRedo'
+
 
 let headers = new Headers({
   "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
@@ -61,9 +59,7 @@ class App extends React.Component {
             <Route path="/artist/:id" component={Artist} />
             <Route path="/album/:id" component={Album} />
             <Route exact path="/search-results" component={SearchResults} />
-            <AddTodo />
-            <VisibleTodoList />
-            <UndoRedo />
+
           </Row>
         </div>
         <Player />

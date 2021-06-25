@@ -5,6 +5,7 @@ import artistReducer from '../reducers/artist'
 import userReducer from '../reducers/user'
 import thunk from 'redux-thunk'
 
+
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
 export const initialState = {

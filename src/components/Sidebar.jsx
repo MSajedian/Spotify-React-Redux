@@ -55,7 +55,6 @@ class Sidebar extends React.Component {
                       Library
                     </Link>
                   </li>
-                  {/* {this.props.location.pathname === "/" && ( */}
                     <li>
                       <div className="input-group mt-3">
                         <input

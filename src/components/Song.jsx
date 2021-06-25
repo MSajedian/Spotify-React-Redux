@@ -31,7 +31,6 @@ class Song extends Component {
       <>
         <div className="py-3 trackHover" >
           <span className="card-like" style={{ color: "white" }} >
-            {/* {this.props.user.favouriteSongs.map((song) => ( <p>{song}</p> ))} */}
             {this.props.user.favouriteTracks.filter(elem => elem.id === this.props.track.id).length !== 0 ?
               <AiFillHeart onClick={() => { this.props.removeFromFavouriteTracks(this.props.track) }} />
               :

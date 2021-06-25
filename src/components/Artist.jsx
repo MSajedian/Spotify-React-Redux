@@ -10,55 +10,10 @@ const mapDispatchToProps = (dispatch) => ({
   getData: (fetchType, query) => dispatch(getDataAction(fetchType, query))
 })
 class Artist extends React.Component {
-  // state = {
-  //   artist: {},
-  //   songs: [],
-  // };
 
   componentDidMount = async () => {
     let artistId = this.props.match.params.id;
     this.props.getData("artist", artistId)
-
-  //   let headers = new Headers({
-  //     "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
-  //     "X-RapidAPI-Key": "c74a0a086emshf55ffb8dbdcb59ap17a486jsnb83bb4d3e387",
-  //   });
-
-  //   try {
-  //     let response = await fetch(
-  //       "https://striveschool-api.herokuapp.com/api/deezer/artist/" + artistId,
-  //       {
-  //         method: "GET",
-  //         headers,
-  //       }
-  //     );
-
-  //     if (response.ok) {
-  //       let artist = await response.json();
-  //       this.setState(
-  //         {
-  //           artist,
-  //         },
-  //         async () => {
-  //           let tracksResponse = await fetch(
-  //             "https://striveschool-api.herokuapp.com/api/deezer/search?q=" +
-  //               artist.name,
-  //             {
-  //               method: "GET",
-  //               headers,
-  //             }
-  //           );
-
-  //           if (tracksResponse.ok) {
-  //             let tracklist = await tracksResponse.json();
-  //             this.setState({ songs: tracklist.data });
-  //           }
-  //         }
-  //       );
-  //     }
-  //   } catch (exception) {
-  //     console.log(exception);
-  //   }
   };
 
   render() {
