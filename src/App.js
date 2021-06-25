@@ -9,6 +9,10 @@ import Artist from "./components/Artist";
 import Album from "./components/Album";
 import SearchResults from "./components/SearchResults";
 
+import AddTodo from '../containers/AddTodo'
+import VisibleTodoList from '../containers/VisibleTodoList'
+import UndoRedo from '../containers/UndoRedo'
+
 let headers = new Headers({
   "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
   "X-RapidAPI-Key": "222902beabmshb95a65b737cead6p1f3ac9jsn23ced94c0d20",
@@ -24,7 +28,7 @@ class App extends React.Component {
       try {
         let response = await fetch(
           "https://striveschool-api.herokuapp.com/api/deezer/search?q=" +
-            string,
+          string,
           {
             method: "GET",
             headers,
@@ -48,7 +52,7 @@ class App extends React.Component {
       <Router>
         <div className="container-fluid">
           <Row>
-            <Sidebar/>
+            <Sidebar />
             <Route
               path="/"
               exact
@@ -57,6 +61,9 @@ class App extends React.Component {
             <Route path="/artist/:id" component={Artist} />
             <Route path="/album/:id" component={Album} />
             <Route exact path="/search-results" component={SearchResults} />
+            <AddTodo />
+            <VisibleTodoList />
+            <UndoRedo />
           </Row>
         </div>
         <Player />
