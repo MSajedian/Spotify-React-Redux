@@ -7,6 +7,7 @@ import Home from "./components/Home";
 import { Row } from "react-bootstrap";
 import Artist from "./components/Artist";
 import Album from "./components/Album";
+import SearchResults from "./components/SearchResults";
 
 let headers = new Headers({
   "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
@@ -47,7 +48,12 @@ class App extends React.Component {
       <Router>
         <div className="container-fluid">
           <Row>
-            <Sidebar search={this.search} />
+          {/* <Route
+              path="/"
+              exact
+              render={() => <Home searchResults={this.state.searchResults} />}
+            /> */}
+            <Sidebar/>
             <Route
               path="/"
               exact
@@ -55,6 +61,7 @@ class App extends React.Component {
             />
             <Route path="/artist/:id" component={Artist} />
             <Route path="/album/:id" component={Album} />
+            <Route exact path="/search-results" component={SearchResults} />
           </Row>
         </div>
         <Player />

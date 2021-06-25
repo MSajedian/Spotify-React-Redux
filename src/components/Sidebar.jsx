@@ -1,5 +1,13 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
+import { connect } from "react-redux";
+import { getDataAction } from "../actions";
+
+const mapStateToProps = state => state
+
+const mapDispatchToProps = (dispatch) => ({
+  getSongs: (fetchType, query) => dispatch(getDataAction(fetchType, query))
+})
 
 class Sidebar extends React.Component {
   state = {
@@ -47,7 +55,7 @@ class Sidebar extends React.Component {
                       Library
                     </Link>
                   </li>
-                  {this.props.location.pathname === "/" && (
+                  {/* {this.props.location.pathname === "/" && ( */}
                     <li>
                       <div className="input-group mt-3">
                         <input
@@ -71,16 +79,17 @@ class Sidebar extends React.Component {
                             className="btn btn-outline-secondary btn-sm"
                             type="button"
                             id="button-addon1"
-                            onClick={() =>
-                              this.props.search(this.state.searchInput)
-                            }
+                            onClick={() => {
+                              this.props.getSongs("search", this.state.searchInput)
+                              this.props.history.push('/search-results')
+                            }}
                           >
                             GO
                           </button>
                         </div>
                       </div>
                     </li>
-                  )}
+                  {/* )} */}
                 </ul>
               </div>
             </div>
@@ -101,4 +110,5 @@ class Sidebar extends React.Component {
   }
 }
 
-export default withRouter(Sidebar);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Sidebar));
+
