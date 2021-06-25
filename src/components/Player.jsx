@@ -5,7 +5,6 @@ import { withRouter } from "react-router-dom";
 
 const mapStateToProps = state => state
 
-
 const Player = (props) => (
   <div className="container-fluid fixed-bottom bg-container pt-1">
     <Row>
