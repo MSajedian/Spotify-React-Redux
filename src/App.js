@@ -48,11 +48,6 @@ class App extends React.Component {
       <Router>
         <div className="container-fluid">
           <Row>
-          {/* <Route
-              path="/"
-              exact
-              render={() => <Home searchResults={this.state.searchResults} />}
-            /> */}
             <Sidebar/>
             <Route
               path="/"

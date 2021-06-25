@@ -94,7 +94,6 @@ export const getDataAction = (fetchType, query) => {
               payload: true,
             })
           }
-
           dispatch({
             type: 'SET_ERROR',
             payload: false,
@@ -117,12 +116,17 @@ export const getDataAction = (fetchType, query) => {
   }
 }
 
-// export const addJobToFavouriteAction = (job) => ({
-//   type: 'ADD_JOB_TO_FAVOURITE',
-//   payload: job,
-// })
+export const addTrackToIsPlayingAction = (track) => ({
+  type: 'ADD_TRACK_TO_ISPLAYING',
+  payload: track,
+})
 
-// export const removeJobFromFavouriteAction = (index) => ({
-//   type: 'REMOVE_JOB_FROM_FAVOURITE',
-//   payload: index,
-// })
+export const addToFavouriteTracksAction = (track) => ({
+  type: 'ADD_TRACK_TO_FAVOURITETRACKS',
+  payload: track,
+})
+
+export const removeFromFavouriteTracksAction = (index) => ({
+  type: 'REMOVE_TRACK_FROM_FAVOURITETRACKS',
+  payload: index,
+})

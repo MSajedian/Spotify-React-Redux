@@ -20,7 +20,7 @@ export const initialState = {
     songs: [],
   },
   user: {
-    favouriteSongs: [],
+    favouriteTracks: [],
     isPlaying: {},
   }
 }

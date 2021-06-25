@@ -89,6 +89,7 @@ ul {
 /* BOTTOM PLAYER SECTION*/
 
 .bg-container {
+  padding-left: 250px !important;
   height: 5.5rem;
   background-color: #282828;
 }
@@ -167,6 +168,10 @@ ul {
   color: white;
   font-weight: 700;
   padding-top: 50px;
+}
+
+.card-like {
+  z-index: 30;
 }
 
 .trackHover:hover {
