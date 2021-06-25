@@ -36,8 +36,10 @@ export const getDataAction = (fetchType, query) => {
         let resp = await fetch(`https://striveschool-api.herokuapp.com/api/deezer/album/${query}`)
         // console.log(getState())
         if (resp.ok) {
-          let album = await resp.json();
-          let songs= album.tracks.data
+          let result = await resp.json();
+          console.log('result:', result)
+          let album = result
+          let songs = result.tracks.data
           dispatch({
             type: 'GET_ALBUM',
             payload: album,
@@ -46,6 +48,53 @@ export const getDataAction = (fetchType, query) => {
             type: 'GET_ALBUM_SONGS',
             payload: songs,
           })
+          dispatch({
+            type: 'SET_ERROR',
+            payload: false,
+          })
+        } else {
+          console.log('error')
+          dispatch({
+            type: 'SET_ERROR',
+            payload: true,
+          })
+        }
+      } catch (error) {
+        console.log(error)
+        dispatch({
+          type: 'SET_ERROR',
+          payload: true,
+        })
+      }
+    }
+    if (fetchType === "artist") {
+      try {
+        let resp = await fetch(`https://striveschool-api.herokuapp.com/api/deezer/artist/${query}`)
+        // console.log(getState())
+        if (resp.ok) {
+          let artist = await resp.json();
+          dispatch({
+            type: 'GET_ARTIST',
+            payload: artist,
+          })
+          try {
+            let tracksResponse = await fetch(`https://striveschool-api.herokuapp.com/api/deezer/search?q=${artist.name}`)
+            if (tracksResponse.ok) {
+              let tracklist = await tracksResponse.json();
+              let songs = tracklist.data
+              dispatch({
+                type: 'GET_ARTIST_SONGS',
+                payload: songs,
+              })
+            }
+          } catch (error) {
+            console.log(error)
+            dispatch({
+              type: 'SET_ERROR',
+              payload: true,
+            })
+          }
+
           dispatch({
             type: 'SET_ERROR',
             payload: false,

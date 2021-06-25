@@ -6,7 +6,7 @@ import { getDataAction } from "../actions";
 const mapStateToProps = state => state
 
 const mapDispatchToProps = (dispatch) => ({
-  getSongs: (fetchType, query) => dispatch(getDataAction(fetchType, query))
+  getData: (fetchType, query) => dispatch(getDataAction(fetchType, query))
 })
 
 class Sidebar extends React.Component {
@@ -80,7 +80,7 @@ class Sidebar extends React.Component {
                             type="button"
                             id="button-addon1"
                             onClick={() => {
-                              this.props.getSongs("search", this.state.searchInput)
+                              this.props.getData("search", this.state.searchInput)
                               this.props.history.push('/search-results')
                             }}
                           >

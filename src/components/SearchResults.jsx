@@ -7,7 +7,7 @@ import { getDataAction } from "../actions";
 const mapStateToProps = state => state
 
 const mapDispatchToProps = (dispatch) => ({
-    getJobs: (fetchType, query) => dispatch(getDataAction(fetchType, query))
+  getData: (fetchType, query) => dispatch(getDataAction(fetchType, query))
 })
 
 class SearchResults extends React.Component {
